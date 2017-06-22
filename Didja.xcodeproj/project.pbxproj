@@ -14,6 +14,7 @@
 		4B23A20C1EFC05A700C14F0B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B23A20B1EFC05A700C14F0B /* User.swift */; };
 		4B23A20E1EFC0A5800C14F0B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B23A20D1EFC0A5800C14F0B /* Group.swift */; };
 		4B23A2101EFC0ACC00C14F0B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B23A20F1EFC0ACC00C14F0B /* Task.swift */; };
+		4B23A2121EFC17DB00C14F0B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B23A2111EFC17DB00C14F0B /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4B23A20B1EFC05A700C14F0B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4B23A20D1EFC0A5800C14F0B /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		4B23A20F1EFC0ACC00C14F0B /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		4B23A2111EFC17DB00C14F0B /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = ../TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				4B23A1F91EFC044400C14F0B /* AppDelegate.swift */,
 				4B23A1FB1EFC044400C14F0B /* ViewController.swift */,
+				4B23A2111EFC17DB00C14F0B /* TableViewController.swift */,
 				4B23A20B1EFC05A700C14F0B /* User.swift */,
 				4B23A20D1EFC0A5800C14F0B /* Group.swift */,
 				4B23A20F1EFC0ACC00C14F0B /* Task.swift */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B23A1FC1EFC044400C14F0B /* ViewController.swift in Sources */,
+				4B23A2121EFC17DB00C14F0B /* TableViewController.swift in Sources */,
 				4B23A20E1EFC0A5800C14F0B /* Group.swift in Sources */,
 				4B23A2101EFC0ACC00C14F0B /* Task.swift in Sources */,
 				4B23A1FA1EFC044400C14F0B /* AppDelegate.swift in Sources */,
