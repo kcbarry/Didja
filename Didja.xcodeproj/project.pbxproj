@@ -15,6 +15,9 @@
 		4B23A20E1EFC0A5800C14F0B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B23A20D1EFC0A5800C14F0B /* Group.swift */; };
 		4B23A2101EFC0ACC00C14F0B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B23A20F1EFC0ACC00C14F0B /* Task.swift */; };
 		4B23A2121EFC17DB00C14F0B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B23A2111EFC17DB00C14F0B /* TableViewController.swift */; };
+		E88BF3A31F04648900F9F17E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88BF3A21F04648900F9F17E /* WelcomeViewController.swift */; };
+		E88BF3A51F04674200F9F17E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88BF3A41F04674200F9F17E /* SignUpViewController.swift */; };
+		E88BF3A71F04674C00F9F17E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88BF3A61F04674C00F9F17E /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		4B23A20D1EFC0A5800C14F0B /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		4B23A20F1EFC0ACC00C14F0B /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		4B23A2111EFC17DB00C14F0B /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = ../TableViewController.swift; sourceTree = "<group>"; };
+		E88BF3A21F04648900F9F17E /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		E88BF3A41F04674200F9F17E /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		E88BF3A61F04674C00F9F17E /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,9 @@
 			children = (
 				4B23A1F91EFC044400C14F0B /* AppDelegate.swift */,
 				4B23A1FB1EFC044400C14F0B /* ViewController.swift */,
+				E88BF3A21F04648900F9F17E /* WelcomeViewController.swift */,
+				E88BF3A61F04674C00F9F17E /* SignInViewController.swift */,
+				E88BF3A41F04674200F9F17E /* SignUpViewController.swift */,
 				4B23A2111EFC17DB00C14F0B /* TableViewController.swift */,
 				4B23A20B1EFC05A700C14F0B /* User.swift */,
 				4B23A20D1EFC0A5800C14F0B /* Group.swift */,
@@ -146,10 +155,13 @@
 			files = (
 				4B23A1FC1EFC044400C14F0B /* ViewController.swift in Sources */,
 				4B23A2121EFC17DB00C14F0B /* TableViewController.swift in Sources */,
+				E88BF3A51F04674200F9F17E /* SignUpViewController.swift in Sources */,
 				4B23A20E1EFC0A5800C14F0B /* Group.swift in Sources */,
 				4B23A2101EFC0ACC00C14F0B /* Task.swift in Sources */,
+				E88BF3A71F04674C00F9F17E /* SignInViewController.swift in Sources */,
 				4B23A1FA1EFC044400C14F0B /* AppDelegate.swift in Sources */,
 				4B23A20C1EFC05A700C14F0B /* User.swift in Sources */,
+				E88BF3A31F04648900F9F17E /* WelcomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +279,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Didja/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.learning.Didja;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -279,6 +292,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Didja/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.learning.Didja;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -305,6 +319,7 @@
 				4B23A20A1EFC044400C14F0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
