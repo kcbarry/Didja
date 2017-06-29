@@ -7,6 +7,7 @@
 //
 
 import Foundation
+//TODO add Firebase for our backend
 
 enum CreateUserError: Error {
     case unknown
