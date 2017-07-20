@@ -1,20 +1,31 @@
 //
-//  TableViewController.swift
+//  HouseViewController.swift
 //  Didja
 //
-//  Created by Clark Barry on 6/22/17.
+//  Created by Nikhil Bhatia-lin on 7/14/17.
 //  Copyright © 2017 learning. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    // MARK: - UIViewController
+class HouseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    init (user: User) {
+        self.user = user
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    var user: User
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "BoardBackground"))
+        self.title = "House List"
         view.addSubview(tableView)
     }
     
@@ -36,15 +47,16 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.textLabel?.text = text
         return cell
     }
-    
-    // MARK: - UITableViewDelegate 
+
+
+    // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
+        
     }
     
     
-    private let cellIdentifier = "SomeString"
+    private let cellIdentifier = "houseCell"
     private lazy var tableView: UITableView = {
         let tableView = UITableView.init()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)

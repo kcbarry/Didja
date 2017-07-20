@@ -10,12 +10,39 @@ import UIKit
 
 class SignInViewController: UIViewController {
 
+struct userInfo
+{
+    var firstName = "First"
+    var lastName = "Last"
+    var email = "email@website.com"
+    var phone = "5109265186"
+    var username = "myusername"
+    var password = "mypassword"
+}
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "BoardBackground"))
         self.title = "Sign In"
-        self.view.addSubview(usernameTextField)
+        self.view.addSubview(emailTextField)
         self.view.addSubview(passwordTextField)
+        
+        signInButton.addTarget(self, action: #selector(SignInViewController.didPressSignIn(_:)), for: .touchUpInside)
+        
+        signInButton.sizeToFit()
+        let signInButtonCenterXConstraint = NSLayoutConstraint.init(item: signInButton, attribute: .centerXWithinMargins, relatedBy: .equal, toItem: view, attribute: .centerXWithinMargins, multiplier: 1.0, constant: 0)
+        let signInButtonCenterYConstraint = NSLayoutConstraint.init(item: signInButton, attribute: .centerYWithinMargins, relatedBy: .equal, toItem: view, attribute: .centerYWithinMargins, multiplier: 1.0, constant: -110)
+        view.addSubview(signInButton)
+        
+        signUpInstead.addTarget(self, action: #selector(SignInViewController.didPressSignUpInstead(_:)), for: .touchUpInside)
+        
+        signUpInstead.sizeToFit()
+        let signUpInsteadCenterXConstraint = NSLayoutConstraint.init(item: signUpInstead, attribute: .centerXWithinMargins, relatedBy: .equal, toItem: view, attribute: .centerXWithinMargins, multiplier: 1.0, constant: 0)
+        let signUpInsteadCenterYConstraint = NSLayoutConstraint.init(item: signUpInstead, attribute: .centerYWithinMargins, relatedBy: .equal, toItem: view, attribute: .centerYWithinMargins, multiplier: 1.0, constant: -50)
+        view.addSubview(signUpInstead)
+        
+        
+        view.addConstraints([signInButtonCenterXConstraint, signInButtonCenterYConstraint, signUpInsteadCenterXConstraint, signUpInsteadCenterYConstraint])
+        
     }
 
     override func viewDidLayoutSubviews() {
@@ -36,16 +63,16 @@ class SignInViewController: UIViewController {
         let textFieldWidth = min(availableBounds.width, self.maxTextFieldWidth)
         let textFieldOriginX = availableBounds.midX - (textFieldWidth/2.0)
         
-        var usernameTextFieldFrame = CGRect.zero
-        usernameTextFieldFrame.origin.x = textFieldOriginX
-        usernameTextFieldFrame.origin.y = availableBounds.minY
-        usernameTextFieldFrame.size.width = textFieldWidth
-        usernameTextFieldFrame.size.height = textFieldHeight
-        self.usernameTextField.frame = usernameTextFieldFrame
+        var emailTextFieldFrame = CGRect.zero
+        emailTextFieldFrame.origin.x = textFieldOriginX
+        emailTextFieldFrame.origin.y = availableBounds.minY
+        emailTextFieldFrame.size.width = textFieldWidth
+        emailTextFieldFrame.size.height = textFieldHeight
+        self.emailTextField.frame = emailTextFieldFrame
         
-        let textFieldVerticalOffset = usernameTextFieldFrame.height + verticalPadding
-        availableBounds.origin.y += textFieldVerticalOffset
-        availableBounds.size.height -= textFieldVerticalOffset
+        let emailFieldVerticalOffset = emailTextFieldFrame.height + verticalPadding
+        availableBounds.origin.y += emailFieldVerticalOffset
+        availableBounds.size.height -= emailFieldVerticalOffset
         
         var passwordTextFieldFrame = CGRect.zero
         passwordTextFieldFrame.origin.x = textFieldOriginX
@@ -57,8 +84,6 @@ class SignInViewController: UIViewController {
         let passwordFieldVerticalOffset = passwordTextFieldFrame.height + verticalPadding
         availableBounds.origin.y += passwordFieldVerticalOffset
         availableBounds.size.height -= passwordFieldVerticalOffset
-        
-        //TODO: Make a sign in button
     }
 
     /*
@@ -70,6 +95,20 @@ class SignInViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    // MARK: - Object Functions
+    
+    @objc func didPressSignIn(_ sender: Any) {
+        var user = User.authenticateUserWith(email: emailTextField.text ?? "", password: passwordTextField.text ?? "", completionHandler: {(user, error) in
+                let houseViewController = HouseViewController.init(user: user)
+                self.navigationController?.pushViewController(houseViewController, animated: true)
+        })
+        
+    }
+    
+    @objc func didPressSignUpInstead(_ sender: Any) {
+        let signUpViewController = SignUpViewController.init(nibName: nil, bundle: nil)
+        self.navigationController?.pushViewController(signUpViewController, animated: true)
+    }
     
     // MARK: - Private Variables
     
@@ -79,13 +118,13 @@ class SignInViewController: UIViewController {
     
     private let textFieldHeight: CGFloat = 44
     
-    private lazy var usernameTextField: UITextField = {
-        let usernameTextField = UITextField.init(frame: CGRect.zero)
-        usernameTextField.borderStyle = .roundedRect
-        usernameTextField.placeholder = "Username"
+    private lazy var emailTextField: UITextField = {
+        let emailTextField = UITextField.init(frame: CGRect.zero)
+        emailTextField.borderStyle = .roundedRect
+        emailTextField.placeholder = "Email"
 //        usernameTextField.layer.borderColor = UIColor.red.cgColor
 //        usernameTextField.layer.borderWidth = 1
-        return usernameTextField
+        return emailTextField
     }()
     
     private lazy var passwordTextField: UITextField = {
@@ -94,5 +133,19 @@ class SignInViewController: UIViewController {
         passwordTextField.placeholder = "Password"
         passwordTextField.isSecureTextEntry = true
         return passwordTextField
+    }()
+    
+    private lazy var signInButton: UIButton = {
+        let signInButton = UIButton.init(type: .system)
+        signInButton.translatesAutoresizingMaskIntoConstraints = false
+        signInButton.setTitle("Sign In", for: .normal)
+        return signInButton
+    }()
+    
+    private lazy var signUpInstead: UIButton = {
+        let signUpInstead = UIButton.init(type: .system)
+        signUpInstead.translatesAutoresizingMaskIntoConstraints = false
+        signUpInstead.setTitle("Sign Up Instead", for: .normal)
+        return signUpInstead
     }()
 }
