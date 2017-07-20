@@ -120,8 +120,26 @@ class SignUpViewController: UIViewController {
     // MARK: - Object Functions
     
     @objc func didPressSignUp(_ sender: Any) {
-        let houseViewController = HouseViewController.init(nibName: nil, bundle: nil)
-        self.navigationController?.pushViewController(houseViewController, animated: true)
+        if let email = emailTextField.text,
+            let password = passwordTextField.text,
+            let phoneNumberString = phoneTextField.text,
+            let firstName = firstNameTextField.text,
+            let lastName = lastNameTextField.text
+        {
+            let displayName = firstName + " " + lastName
+            User.createUserWith(email: email, displayName: displayName, password: password, phone: phoneNumberString, completionHandler: { (user, error) in
+                if let createdUser = user {
+                    let houseViewController = HouseViewController.init(user: createdUser)
+                    self.navigationController?.pushViewController(houseViewController, animated: true)
+                }
+                else {
+                    //TODO: display error
+                }
+            })
+        }
+        else {
+            // Complain to the user that we dont have things
+        }
     }
     
     // MARK: - Private Variables

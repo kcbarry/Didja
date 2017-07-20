@@ -42,8 +42,7 @@ class ViewController: UIViewController {
     }
     
     @objc func didPressTableButton(_ sender: Any) {
-        let tableViewController = TableViewController.init(nibName: nil, bundle: nil)
-        self.navigationController?.pushViewController(tableViewController, animated: true)
+        
     }
     
     

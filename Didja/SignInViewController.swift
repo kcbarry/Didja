@@ -98,9 +98,14 @@ struct userInfo
     // MARK: - Object Functions
     
     @objc func didPressSignIn(_ sender: Any) {
-        var user = User.authenticateUserWith(email: emailTextField.text ?? "", password: passwordTextField.text ?? "", completionHandler: {(user, error) in
-                let houseViewController = HouseViewController.init(user: user)
+        User.authenticateUserWith(email: emailTextField.text ?? "", password: passwordTextField.text ?? "", completionHandler: { (user, error) in
+            if let authenicatedUser = user {
+                let houseViewController = HouseViewController.init(user: authenicatedUser)
                 self.navigationController?.pushViewController(houseViewController, animated: true)
+            }
+            else if let authError = error {
+                // TODO: show an error dialog
+            }
         })
         
     }
